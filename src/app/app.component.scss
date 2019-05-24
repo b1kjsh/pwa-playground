@@ -1,0 +1,29 @@
+:host {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  grid-gap: 5px;
+}
+.header {
+  width: 100%;
+  display: grid;
+  margin: auto;
+  grid-template-areas: "logo upload about";
+  grid-template-columns: repeat(3, minmax(50px, 1fr));
+  grid-gap: 25px;
+  align-items: center;
+}
+
+div a:nth-child(1) {
+  grid-area: 'logo';
+  justify-self: start;
+}
+
+div a:nth-child(2) {
+  grid-area: 'upload';
+  justify-self: center;
+}
+
+div a:nth-child(3) {
+  grid-area: 'about';
+  justify-self: center;
+}
