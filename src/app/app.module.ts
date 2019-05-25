@@ -9,9 +9,11 @@ import { UploadService } from './upload/upload.service';
 import { UploadComponent } from './upload/upload.component';
 import { AboutComponent } from './about/about.component';
 import { HomeComponent } from './home/home.component';
-import { AngularFireModule } from '@angular/fire';
+import { AngularFireModule } from 'angularfire2';
 import { DropZoneDirective } from './upload/drop-zone.directive';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFirestoreModule } from 'angularfire2/firestore';
+
 
 
 
@@ -28,13 +30,8 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
     BrowserModule,
     AppRoutingModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
-    AngularFireModule.initializeApp({
-      apiKey: '',
-      databaseURL: 'fileuploadpwa.firebaseio.com',
-      authDomain: 'fileuploadpwa.firebaseio.com',
-      storageBucket: 'fileuploadpwa.appspot.com',
-      projectId: 'fileuploadpwa',
-    }),
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule,
     AngularFireDatabaseModule
   ],
   providers: [UploadService],
