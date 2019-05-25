@@ -6,7 +6,12 @@ import { SwUpdate, SwPush } from '@angular/service-worker';
 @Injectable()
 export class UploadService {
 
-  constructor(private db: AngularFireDatabase) { }
+  constructor(private db: AngularFireDatabase) {
+    const lastImage = localStorage.getItem('image');
+    if (lastImage) {
+      alert(`I found this in your storage since your last visit ${lastImage}`);
+    }
+  }
 
   private basePath:string = '/uploads';
   uploads: AngularFireList<Upload[]>;
@@ -24,7 +29,7 @@ export class UploadService {
         // upload failed
         // console.log(error);
         localStorage.setItem('image', `{name: ${upload.file.name}}`);
-        aler(localStorage.getItem('image'));
+        alert(`Saved to localStorage ${localStorage.getItem('image')}`);
       },
       () => {
         // upload success
