@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   firebase: {
-    apiKey: "AIzaSyDVfRyFDPpfwrSaTNbeYu88tQpCoBFiySg",
+    apiKey: "",
     authDomain: "fileuploadpwa.firebaseapp.com",
     databaseURL: "https://fileuploadpwa.firebaseio.com",
     projectId: "fileuploadpwa",
