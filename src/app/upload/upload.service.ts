@@ -24,7 +24,7 @@ export class UploadService {
         // upload failed
         // console.log(error);
         localStorage.setItem('image', `{name: ${upload.file.name}}`);
-        console.log(localStorage.getItem('image'));
+        aler(localStorage.getItem('image'));
       },
       () => {
         // upload success
