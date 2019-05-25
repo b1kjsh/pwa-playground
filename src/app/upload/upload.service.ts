@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import * as firebase from 'firebase';
 import { AngularFireDatabase, AngularFireList } from "angularfire2/database"; 
-
+import { SwUpdate, SwPush } from '@angular/service-worker';
 
 @Injectable()
 export class UploadService {
@@ -22,7 +22,9 @@ export class UploadService {
       },
       (error) => {
         // upload failed
-        console.log(error);
+        // console.log(error);
+        localStorage.setItem('image', `{name: ${upload.file.name}}`);
+        console.log(localStorage.getItem('image'));
       },
       () => {
         // upload success
@@ -30,7 +32,7 @@ export class UploadService {
           upload.url = url;
           upload.name = upload.file.name;
           this.saveFileData(upload);
-        });
+        }).catch((err) => console.log(err));
       }
     );
   }
