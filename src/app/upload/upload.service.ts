@@ -6,7 +6,7 @@ import { AngularFireDatabase, AngularFireList } from "angularfire2/database";
 @Injectable()
 export class UploadService {
 
-  constructor() { }
+  constructor(private db: AngularFireDatabase) { }
 
   private basePath:string = '/uploads';
   uploads: AngularFireList<Upload[]>;
